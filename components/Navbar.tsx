@@ -1,61 +1,65 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React from "react";
 
 function Navbar() {
   const [isFullScreen, setIsFullScreen] = React.useState<boolean>(false);
   const iconSize: number = 20;
 
-  const goFullScreen = () => {
-    const doc = document.documentElement as HTMLElement; // Target the <html> element
-    if (doc.requestFullscreen) {
-      doc.requestFullscreen();
-    } else if (doc.mozRequestFullScreen) {
-      // For Firefox
-      doc.mozRequestFullScreen();
-    } else if (doc.webkitRequestFullscreen) {
-      // For Chrome, Safari, and Opera
-      doc.webkitRequestFullscreen();
-    } else if (doc.msRequestFullscreen) {
-      // For IE/Edge
-      doc.msRequestFullscreen();
-    }
-  };
+  // const goFullScreen = () => {
+  //   const doc = document.documentElement as HTMLElement; // Target the <html> element
+  //   if (doc.requestFullscreen) {
+  //     doc.requestFullscreen();
+  //   } else if (doc.mozRequestFullScreen) {
+  //     // For Firefox
+  //     doc.mozRequestFullScreen();
+  //   } else if (doc.webkitRequestFullscreen) {
+  //     // For Chrome, Safari, and Opera
+  //     doc.webkitRequestFullscreen();
+  //   } else if (doc.msRequestFullscreen) {
+  //     // For IE/Edge
+  //     doc.msRequestFullscreen();
+  //   }
+  // };
 
-  const exitFullScreen = () => {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      // For Firefox
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      // For Chrome, Safari, and Opera
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-      // For IE/Edge
-      document.msExitFullscreen();
-    }
-  };
+  // const exitFullScreen = () => {
+  //   if (document.exitFullscreen) {
+  //     document.exitFullscreen();
+  //   } else if (document.mozCancelFullScreen) {
+  //     // For Firefox
+  //     document.mozCancelFullScreen();
+  //   } else if (document.webkitExitFullscreen) {
+  //     // For Chrome, Safari, and Opera
+  //     document.webkitExitFullscreen();
+  //   } else if (document.msExitFullscreen) {
+  //     // For IE/Edge
+  //     document.msExitFullscreen();
+  //   }
+  // };
 
   // Handle fullscreen state change
-  useEffect(() => {
-    const handleFullScreenChange = () => {
-      setIsFullScreen(!!document.fullscreenElement);
-    };
+  // useEffect(() => {
+  //   const handleFullScreenChange = () => {
+  //     setIsFullScreen(!!document.fullscreenElement);
+  //   };
 
-    document.addEventListener("fullscreenchange", handleFullScreenChange);
+  //   document.addEventListener("fullscreenchange", handleFullScreenChange);
 
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullScreenChange);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("fullscreenchange", handleFullScreenChange);
+  //   };
+  // }, []);
+
+  // const toggleFullScreen = () => {
+  //   if (isFullScreen) {
+  //     exitFullScreen();
+  //   } else {
+  //     goFullScreen();
+  //   }
+  //   setIsFullScreen((prevState) => !prevState);
+  // };
 
   const toggleFullScreen = () => {
-    if (isFullScreen) {
-      exitFullScreen();
-    } else {
-      goFullScreen();
-    }
     setIsFullScreen((prevState) => !prevState);
   };
 
