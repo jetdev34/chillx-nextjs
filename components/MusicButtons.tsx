@@ -7,15 +7,31 @@ import PreviousButton from "./PreviousButton";
 type Props = {
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  handleNext: () => void;
+  handlePrevious: () => void;
+  currentIndex: number;
+  BGM: { title: string; url: string }[];
 };
 
-const MusicButtons: React.FC<Props> = ({ isPlaying, setIsPlaying }) => {
+const MusicButtons: React.FC<Props> = ({
+  isPlaying,
+  setIsPlaying,
+  handleNext,
+  handlePrevious,
+  currentIndex,
+  BGM,
+}) => {
   return (
     <div className="flex gap-4">
-      <PlayButton isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+      <PlayButton
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        currentIndex={currentIndex}
+        BGM={BGM}
+      />
       <ShuffleButton />
-      <PreviousButton />
-      <NextButton />
+      <PreviousButton onClick={handlePrevious} />
+      <NextButton onClick={handleNext} />
     </div>
   );
 };

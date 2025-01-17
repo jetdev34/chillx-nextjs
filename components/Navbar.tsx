@@ -71,7 +71,7 @@ function Navbar() {
           <li className="link">
             <Image
               onClick={toggleFullScreen}
-              className="neon-lights"
+              className={`neon-lights ${isFullScreen ? "scale-x-[-1]" : ""}`}
               src={isFullScreen ? "/minimize.png" : "/maximize.png"}
               alt={isFullScreen ? "minimize" : "maximize"}
               width={iconSize}

@@ -1,0 +1,14 @@
+- #Play one song only
+- #Next and Previous functionality
+- Shuffle functionality
+- Firebase implementation
+- Noise effect functionality
+- About section
+- Fullscreen mode
+- Visual music implementation
+- Select categories
+- without Neon lights implementation
+- Change visual when press next and previous button
+- Pzz loading screen when press next and previous button
+- Loading Screen when the web starts
+- Keyboard Shortcuts

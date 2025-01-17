@@ -5,9 +5,16 @@ import ReactPlayer from "react-player/youtube";
 type PlayButtonProps = {
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  currentIndex: number;
+  BGM: { title: string; url: string }[];
 };
 
-const PlayButton: React.FC<PlayButtonProps> = ({ isPlaying, setIsPlaying }) => {
+const PlayButton: React.FC<PlayButtonProps> = ({
+  isPlaying,
+  setIsPlaying,
+  currentIndex,
+  BGM,
+}) => {
   const iconSize: number = 20;
 
   const togglePlay = () => {
@@ -36,13 +43,15 @@ const PlayButton: React.FC<PlayButtonProps> = ({ isPlaying, setIsPlaying }) => {
         />
       )}
 
-      {/* Invisible ReactPlayer */}
+      {/* ReactPlayer updates dynamically based on currentIndex */}
       <ReactPlayer
-        url="https://www.youtube.com/watch?v=jfKfPfyJRdk"
+        style={{ display: "none" }}
+        url={BGM[currentIndex].url}
         playing={isPlaying}
         loop={true}
         muted={false}
-        volume={0.5}
+        // Volumes ranges to 0 to 1(highest) only
+        volume={1}
         width="0"
         height="0"
       />
