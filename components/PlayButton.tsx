@@ -1,0 +1,53 @@
+import React from "react";
+import Image from "next/image";
+import ReactPlayer from "react-player/youtube";
+
+type PlayButtonProps = {
+  isPlaying: boolean;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const PlayButton: React.FC<PlayButtonProps> = ({ isPlaying, setIsPlaying }) => {
+  const iconSize: number = 20;
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <>
+      {isPlaying ? (
+        <Image
+          onClick={togglePlay}
+          className="link"
+          src="/pause.png"
+          alt="Pause"
+          width={iconSize}
+          height={iconSize}
+        />
+      ) : (
+        <Image
+          onClick={togglePlay}
+          className="link"
+          src="/play.png"
+          alt="Play"
+          width={iconSize}
+          height={iconSize}
+        />
+      )}
+
+      {/* Invisible ReactPlayer */}
+      <ReactPlayer
+        url="https://www.youtube.com/watch?v=jfKfPfyJRdk"
+        playing={isPlaying}
+        loop={true}
+        muted={false}
+        volume={0.5}
+        width="0"
+        height="0"
+      />
+    </>
+  );
+};
+
+export default PlayButton;
