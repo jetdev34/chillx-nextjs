@@ -7,6 +7,7 @@ type PlayButtonProps = {
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   currentIndex: number;
   BGM: { title: string; url: string }[];
+  volume: number; // New prop
 };
 
 const PlayButton: React.FC<PlayButtonProps> = ({
@@ -14,6 +15,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({
   setIsPlaying,
   currentIndex,
   BGM,
+  volume,
 }) => {
   const iconSize: number = 20;
 
@@ -50,8 +52,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({
         playing={isPlaying}
         loop={true}
         muted={false}
-        // Volumes ranges to 0 to 1(highest) only
-        volume={1}
+        volume={volume} // Dynamic volume
         width="0"
         height="0"
       />

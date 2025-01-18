@@ -12,3 +12,4 @@
 - Pzz loading screen when press next and previous button
 - Loading Screen when the web starts
 - Keyboard Shortcuts
+- #Volume functionality

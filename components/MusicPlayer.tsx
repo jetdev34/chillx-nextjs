@@ -2,30 +2,43 @@
 
 import React, { useState, useEffect } from "react";
 import MusicButtons from "./MusicButtons";
-import { BGM } from "@/lib/data";
+import { BGM, GIF } from "@/lib/data";
 
-const MusicPlayer: React.FC = () => {
+interface MusicPlayerProps {
+  onGifChange: (gifUrl: string) => void;
+}
+
+const MusicPlayer: React.FC<MusicPlayerProps> = ({ onGifChange }) => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   useEffect(() => {
-    setIsClient(true); // Ensure the component is mounted on the client
+    setIsClient(true);
   }, []);
 
+  if (!isClient) {
+    return null; // Avoid SSR mismatch
+  }
+
+  const getRandomGif = () => {
+    const randomIndex = Math.floor(Math.random() * GIF.length);
+    return GIF[randomIndex].url;
+  };
+
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % BGM.length); // Move to the next track
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % BGM.length);
+    const newGif = getRandomGif();
+    onGifChange(newGif);
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? BGM.length - 1 : prevIndex - 1
     );
+    const newGif = getRandomGif();
+    onGifChange(newGif);
   };
-
-  if (!isClient) {
-    return null; // Avoid SSR mismatch
-  }
 
   return (
     <section className="fixed bottom-0 left-0 w-full py-6">

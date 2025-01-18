@@ -77,3 +77,42 @@ export const BGM = [
     isLive: false,
   },
 ];
+
+export const GIF = [
+  {
+    id: 1,
+    url: "/cat-raining.gif",
+  },
+  {
+    id: 2,
+    url: "/Faiyuuhi.gif",
+  },
+  {
+    id: 3,
+    url: "/happyart.gif",
+  },
+  {
+    id: 4,
+    url: "/cd.gif",
+  },
+  {
+    id: 5,
+    url: "/cozynight.gif",
+  },
+  {
+    id: 6,
+    url: "/cup.gif",
+  },
+  {
+    id: 7,
+    url: "/dog.gif",
+  },
+  {
+    id: 8,
+    url: "/sea.gif",
+  },
+  {
+    id: 9,
+    url: "/tower.gif",
+  },
+];
