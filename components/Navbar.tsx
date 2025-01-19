@@ -1,14 +1,42 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import screenfull from "screenfull";
+import { useHotkeys } from "react-hotkeys-hook";
 
 function Navbar() {
   const [isFullScreen, setIsFullScreen] = React.useState<boolean>(false);
   const iconSize: number = 20;
 
+  // Monitor screenfull state
+  React.useEffect(() => {
+    if (screenfull.isEnabled) {
+      const handleFullscreenChange = () => {
+        setIsFullScreen(screenfull.isFullscreen);
+      };
+
+      screenfull.on("change", handleFullscreenChange);
+
+      // Cleanup listener on component unmount
+      return () => {
+        screenfull.off("change", handleFullscreenChange);
+      };
+    }
+  }, []);
+
+  // Toggle fullscreen mode
   const toggleFullScreen = () => {
-    setIsFullScreen((prevState) => !prevState);
+    if (screenfull.isEnabled) {
+      if (screenfull.isFullscreen) {
+        screenfull.exit();
+      } else {
+        screenfull.request();
+      }
+    }
   };
+
+  // Hotkey to toggle fullscreen
+  useHotkeys("f", () => toggleFullScreen());
 
   return (
     <nav className="py-6">
@@ -18,7 +46,9 @@ function Navbar() {
           <li className="link">
             <Image
               onClick={toggleFullScreen}
-              className={`neon-lights ${isFullScreen ? "" : "scale-x-[-1]"}`}
+              className={`neon-lights transition-transform ${
+                isFullScreen ? "" : "scale-x-[-1]"
+              }`}
               src={isFullScreen ? "/minimize.png" : "/maximize.png"}
               alt={isFullScreen ? "minimize" : "maximize"}
               width={iconSize}
