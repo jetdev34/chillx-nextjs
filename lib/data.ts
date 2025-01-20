@@ -158,79 +158,50 @@ export const BGM = [
 export const GIF = [
   {
     id: 1,
-    url: "/happyart.gif",
+    url: "/gif/90s.gif",
   },
   {
     id: 2,
-    url: "/cd.gif",
+    url: "/gif/cd.gif",
   },
   {
     id: 3,
-    url: "/cozynight.gif",
+    url: "/gif/cozynight.gif",
   },
   {
     id: 4,
-    url: "/cup.gif",
+    url: "/gif/cup.gif",
   },
   {
     id: 5,
-    url: "/sea.gif",
+    url: "/gif/night.gif",
   },
   {
     id: 6,
-    url: "/tower.gif",
+    url: "/gif/sea.gif",
   },
-
   {
     id: 7,
-    url: "/gif2/cafe.gif",
+    url: "/gif/tower.gif",
   },
   {
     id: 8,
-    url: "/gif2/computer.gif",
+    url: "/gif/retro.gif",
   },
   {
     id: 9,
-    url: "/gif2/flower.gif",
+    url: "/gif/room.gif",
   },
   {
     id: 10,
-    url: "/gif2/night.gif",
+    url: "/gif/sea3.gif",
   },
   {
     id: 11,
-    url: "/gif2/night2.gif",
+    url: "/gif/stoplight.gif",
   },
   {
     id: 12,
-    url: "/gif2/relaxing.gif",
-  },
-  {
-    id: 13,
-    url: "/gif2/retro.gif",
-  },
-  {
-    id: 14,
-    url: "/gif2/room.gif",
-  },
-  {
-    id: 15,
-    url: "/gif2/sea2.gif",
-  },
-  {
-    id: 16,
-    url: "/gif2/sea3.gif",
-  },
-  {
-    id: 17,
-    url: "/gif2/stoplight.gif",
-  },
-  {
-    id: 18,
-    url: "/gif2/train.gif",
-  },
-  {
-    id: 19,
-    url: "/gif2/train2.gif",
+    url: "/gif/train.gif",
   },
 ];

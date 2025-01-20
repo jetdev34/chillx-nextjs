@@ -2,42 +2,34 @@
 
 import React, { useState, useEffect } from "react";
 import MusicButtons from "./MusicButtons";
-import { BGM, GIF } from "@/lib/data";
+import { BGM } from "@/lib/data";
+import { useGifContext } from "../context/GifProvider";
 
-interface MusicPlayerProps {
-  onGifChange: (gifUrl: string) => void;
-}
-
-const MusicPlayer: React.FC<MusicPlayerProps> = ({ onGifChange }) => {
+const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+  const { handleGifChange } = useGifContext();
+
   useEffect(() => {
-    setIsClient(true);
+    setIsClient(true); // Ensure the component only renders on the client
   }, []);
 
   if (!isClient) {
-    return null; // Avoid SSR mismatch
+    return null; // Prevent server-side rendering mismatches
   }
-
-  const getRandomGif = () => {
-    const randomIndex = Math.floor(Math.random() * GIF.length);
-    return GIF[randomIndex].url;
-  };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % BGM.length);
-    const newGif = getRandomGif();
-    onGifChange(newGif);
+    handleGifChange(); // Change the GIF when moving to the next song
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? BGM.length - 1 : prevIndex - 1
     );
-    const newGif = getRandomGif();
-    onGifChange(newGif);
+    handleGifChange(); // Change the GIF when moving to the previous song
   };
 
   return (

@@ -1,24 +1,12 @@
-"use client";
-
-import React, { useState } from "react";
+import GifProvider from "@/context/GifProvider";
 import MusicPlayer from "@/components/MusicPlayer";
 import Navbar from "@/components/Navbar";
-import { GIF } from "@/lib/data";
 
 export default function Home() {
-  const [currentGif, setCurrentGif] = useState<string>(GIF[0].url);
-
-  const handleGifChange = (newGif: string) => {
-    setCurrentGif(newGif);
-  };
-
   return (
-    <div
-      className="min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: `url('${currentGif}')` }}
-    >
+    <GifProvider>
       <Navbar />
-      <MusicPlayer onGifChange={handleGifChange} />
-    </div>
+      <MusicPlayer />
+    </GifProvider>
   );
 }
