@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import MusicButtons from "./MusicButtons";
 import { BGM } from "@/lib/data";
-import { useGifContext } from "../context/GifProvider";
+import { useGifContext } from "./GifProvider";
 
 const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);

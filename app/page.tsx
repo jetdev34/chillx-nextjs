@@ -1,4 +1,4 @@
-import GifProvider from "@/context/GifProvider";
+import GifProvider from "@/components/GifProvider";
 import MusicPlayer from "@/components/MusicPlayer";
 import Navbar from "@/components/Navbar";
 
