@@ -8,7 +8,7 @@ const regular = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Cozy Vibes",
+  title: "🎵 Lofi Beats",
   description: "Chill music for study, work, and relaxation.",
 };
 

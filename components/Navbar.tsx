@@ -41,7 +41,7 @@ function Navbar() {
   return (
     <nav className="py-6">
       <div className="container flex justify-between items-center">
-        <h1>listening now</h1>
+        <h1>lofi beats</h1>
         <ul className="flex gap-4">
           <li className="link">
             <Image
