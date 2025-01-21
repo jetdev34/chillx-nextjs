@@ -6,6 +6,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 function Navbar() {
   const [isFullScreen, setIsFullScreen] = React.useState<boolean>(false);
+  const [isAbout, setIsAbout] = React.useState<boolean>(false);
   const iconSize: number = 20;
 
   // Monitor screenfull state
@@ -38,15 +39,19 @@ function Navbar() {
   // Hotkey to toggle fullscreen
   useHotkeys("f", () => toggleFullScreen());
 
+  const toggleAbout = () => {
+    setIsAbout(!isAbout);
+  };
+
   return (
     <nav className="py-6">
       <div className="container flex justify-between items-center">
-        <h1>lofi beats</h1>
+        <h1 className="neon-lights-red">lofi beats</h1>
         <ul className="flex gap-4">
-          <li className="link">
+          <li className="link relative group">
             <Image
               onClick={toggleFullScreen}
-              className={`neon-lights transition-transform ${
+              className={`neon-lights-green transition-transform ${
                 isFullScreen ? "" : "scale-x-[-1]"
               }`}
               src={isFullScreen ? "/minimize.png" : "/maximize.png"}
@@ -54,24 +59,69 @@ function Navbar() {
               width={iconSize}
               height={iconSize}
             />
+            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
+              Fullscreen
+            </span>
           </li>
-          <li className="link">
+
+          <li className="link relative group">
             <Image
-              className="neon-lights"
+              className="neon-lights-green"
               src="/x.png"
               alt="x"
               width={22}
               height={22}
             />
+            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
+              X{" "}
+            </span>
           </li>
-          <li className="link">
+          <li className="relative group">
             <Image
-              className="neon-lights"
+              onClick={toggleAbout}
+              className="link neon-lights-green"
               src="/heart.png"
               alt="heart"
               width={iconSize}
               height={iconSize}
             />
+            {!isAbout && (
+              <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
+                About
+              </span>
+            )}
+            {isAbout && (
+              <div className="absolute right-1/2 p-2   mt-2 text-center">
+                <div className="flex gap-2 items-center">
+                  <p className="text-sm neon-lights-green">made by</p>
+                  <a
+                    className="neon-lights-red"
+                    href="https://github.com/jetdev34"
+                    target="_blank"
+                  >
+                    Jethro Alonzo
+                  </a>
+                </div>
+                <div className="border-t neon-lights-red w-full my-2"></div>
+                <span className="neon-lights-green ">key shortcut</span>
+                <div className="flex gap-2">
+                  <span className="neon-lights-red">←→</span>
+                  <span className="neon-lights-green"> station</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="neon-lights-red">↑↓</span>
+                  <span className="neon-lights-green">volume</span>
+                </div>
+                <div className="flex gap-4 items-center ">
+                  <span className="neon-lights-red">G</span>
+                  <span className="neon-lights-green"> gif</span>
+                </div>
+                <div className="flex gap-4 items-center ">
+                  <span className="neon-lights-red">F</span>
+                  <span className="neon-lights-green">fullscreen</span>
+                </div>
+              </div>
+            )}
           </li>
         </ul>
       </div>

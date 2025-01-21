@@ -34,7 +34,7 @@ const MusicPlayer: React.FC = () => {
 
   return (
     <section className="fixed bottom-0 left-0 w-full py-6">
-      <div className="container space-y-2">
+      <div className="container space-y-2 neon-lights-green">
         <MusicButtons
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
@@ -43,7 +43,7 @@ const MusicPlayer: React.FC = () => {
           currentIndex={currentIndex}
           BGM={BGM}
         />
-        <h2>
+        <h2 className="neon-lights-green">
           {isPlaying ? "Playing:" : "Paused:"} {BGM[currentIndex].title}
         </h2>
       </div>

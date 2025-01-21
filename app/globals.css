@@ -15,7 +15,7 @@ h4,
 h5 {
   font-size: 1.5rem;
   letter-spacing: 1;
-  text-shadow: 0 0 1px #ffffff, 0 0 3px #ff0000;
+  /* text-shadow: 0 0 1px #ffffff, 0 0 3px #ff0000; */
 }
 
 @layer utilities {
@@ -31,7 +31,11 @@ h5 {
     @apply cursor-pointer;
   }
 
-  .neon-lights {
-    text-shadow: 0 0 1px #ffffff, 0 0 3px #09ff00;
+  .neon-lights-red {
+    filter: drop-shadow(0 0 2px #ff0000) drop-shadow(0 0 1px red);
+  }
+
+  .neon-lights-green {
+    filter: drop-shadow(0 0 2px hsl(120, 100%, 10%)) drop-shadow(0 0 1px green);
   }
 }
