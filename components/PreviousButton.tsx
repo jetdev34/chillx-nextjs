@@ -10,7 +10,7 @@ export const PreviousButton: React.FC<Props> = ({ onClick }) => (
     <Image
       onClick={onClick}
       className="link scale-x-[-1]"
-      src="/player.png"
+      src="/icons/player.png"
       alt="shuffle"
       width={20}
       height={20}

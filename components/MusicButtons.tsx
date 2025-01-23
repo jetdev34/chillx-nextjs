@@ -10,6 +10,7 @@ type Props = {
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   handleNext: () => void;
   handlePrevious: () => void;
+  handleShuffle: () => void;
   currentIndex: number;
   BGM: { title: string; url: string }[];
 };
@@ -19,6 +20,7 @@ const MusicButtons: React.FC<Props> = ({
   setIsPlaying,
   handleNext,
   handlePrevious,
+  handleShuffle,
   currentIndex,
   BGM,
 }) => {
@@ -27,6 +29,7 @@ const MusicButtons: React.FC<Props> = ({
   useHotkeys("space", () => setIsPlaying(!isPlaying));
   useHotkeys("right", () => handleNext());
   useHotkeys("left", () => handlePrevious());
+  useHotkeys("r", () => handleShuffle());
   useHotkeys("down", () => setVolume(volume - 0.1));
   useHotkeys("up", () => setVolume(volume + 0.1));
 
@@ -40,7 +43,7 @@ const MusicButtons: React.FC<Props> = ({
           BGM={BGM}
           volume={volume}
         />
-        <ShuffleButton />
+        <ShuffleButton onClick={handleShuffle} />
         <PreviousButton onClick={handlePrevious} />
         <NextButton onClick={handleNext} />
         <VolumeBar volume={volume} setVolume={setVolume} />

@@ -29,7 +29,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({
         <Image
           onClick={togglePlay}
           className="link neon-lights"
-          src="/pause.png"
+          src="/icons/pause.png"
           alt="Pause"
           width={iconSize}
           height={iconSize}
@@ -38,7 +38,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({
         <Image
           onClick={togglePlay}
           className="link neon-lights"
-          src="/play.png"
+          src="/icons/play.png"
           alt="Play"
           width={iconSize}
           height={iconSize}

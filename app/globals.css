@@ -20,7 +20,7 @@ h5 {
 
 @layer utilities {
   .container {
-    @apply max-w-[1440px] w-[95%] mx-auto;
+    @apply max-w-[1440px] w-[90%] mx-auto;
   }
 
   .bg-color {

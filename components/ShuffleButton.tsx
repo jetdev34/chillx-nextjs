@@ -1,12 +1,16 @@
 import Image from "next/image";
 import React from "react";
 
-function ShuffleButton() {
+interface Props {
+  onClick: () => void;
+}
+function ShuffleButton({ onClick }: Props) {
   return (
     <>
       <Image
+        onClick={onClick}
         className="link"
-        src="/shuffle.png"
+        src="/icons/shuffle.png"
         alt="shuffle"
         width={20}
         height={20}

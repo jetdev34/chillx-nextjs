@@ -1,19 +1,18 @@
-- #Play one song only
-- #Next and Previous functionality
-- Shuffle functionality
+- !Shuffle functionality
+- Select categories
 - Firebase implementation
 - Noise effect functionality
-- About section
-- #Fullscreen mode
-- #Visual music implementation
-- Select categories
 - without Neon lights implementation
-- #Change visual when press next and previous button
-- Pzz loading screen when press next and previous button
 - Loading Screen when the web starts
-- #Keyboard Shortcuts
-- #Volume functionality
-- #Added visuals
 - Add a todolist (draggable)
 - Add a pomodoro (draggable)
 - Add a stopwatch (draggable)
+- #Play one song only
+- #Next and Previous functionality
+- #About section
+- #Fullscreen mode
+- #Visual music implementation
+- #Change visual when press next and previous button
+- #Keyboard Shortcuts
+- #Volume functionality
+- #Added visuals

@@ -7,6 +7,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 function Navbar() {
   const [isFullScreen, setIsFullScreen] = React.useState<boolean>(false);
   const [isAbout, setIsAbout] = React.useState<boolean>(false);
+
   const iconSize: number = 20;
 
   // Monitor screenfull state
@@ -54,7 +55,7 @@ function Navbar() {
               className={`neon-lights-green transition-transform ${
                 isFullScreen ? "" : "scale-x-[-1]"
               }`}
-              src={isFullScreen ? "/minimize.png" : "/maximize.png"}
+              src={isFullScreen ? "/icons/minimize.png" : "/icons/maximize.png"}
               alt={isFullScreen ? "minimize" : "maximize"}
               width={iconSize}
               height={iconSize}
@@ -63,24 +64,47 @@ function Navbar() {
               Fullscreen
             </span>
           </li>
-
           <li className="link relative group">
             <Image
               className="neon-lights-green"
-              src="/x.png"
+              src="/icons/configuration.png"
+              alt="config"
+              width={iconSize}
+              height={iconSize}
+            />
+            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
+              Config
+            </span>
+          </li>
+          <li className="link relative group">
+            <Image
+              className="neon-lights-green"
+              src="/icons/x.png"
               alt="x"
-              width={22}
-              height={22}
+              width={iconSize}
+              height={iconSize}
             />
             <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
               X{" "}
+            </span>
+          </li>
+          <li className="link relative group">
+            <Image
+              className="neon-lights-green"
+              src="/icons/clock.png"
+              alt="pomodoro"
+              width={iconSize}
+              height={iconSize}
+            />
+            <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block px-2 py-1 text-2xl neon-lights-green ">
+              Pomodoro
             </span>
           </li>
           <li className="relative group">
             <Image
               onClick={toggleAbout}
               className="link neon-lights-green"
-              src="/heart.png"
+              src="/icons/heart.png"
               alt="heart"
               width={iconSize}
               height={iconSize}
@@ -119,6 +143,10 @@ function Navbar() {
                 <div className="flex gap-4 items-center ">
                   <span className="neon-lights-red">F</span>
                   <span className="neon-lights-green">fullscreen</span>
+                </div>
+                <div className="flex gap-4 items-center ">
+                  <span className="neon-lights-red">R</span>
+                  <span className="neon-lights-green">shuffle</span>
                 </div>
               </div>
             )}

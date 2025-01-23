@@ -10,7 +10,7 @@ export const NextButton: React.FC<Props> = ({ onClick }) => (
     <Image
       onClick={onClick}
       className="link"
-      src="/player.png"
+      src="/icons/player.png"
       alt="shuffle"
       width={20}
       height={20}
