@@ -4,13 +4,15 @@ import React, { useState, useEffect } from "react";
 import MusicButtons from "./MusicButtons";
 import { BGM } from "@/lib/data";
 import { useGifContext } from "./GifProvider";
+import Noise from "./Noise";
 
 const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [showNoise, setShowNoise] = useState(false); // State for noise visibility
 
-  const { handleGifChange } = useGifContext();
+  const { handleGifChange, setGifVisible } = useGifContext();
 
   useEffect(() => {
     setIsClient(true); // Ensure the component only renders on the client
@@ -20,22 +22,35 @@ const MusicPlayer: React.FC = () => {
     return null; // Prevent server-side rendering mismatches
   }
 
+  // Helper function to show noise briefly
+  const triggerNoise = () => {
+    setShowNoise(true); // Show the noise GIF
+    setGifVisible(false); // Hide the lofi GIF
+    setTimeout(() => {
+      setShowNoise(false); // Hide the noise GIF
+      setGifVisible(true); // Show the lofi GIF again
+    }, 300); // Adjust the duration to your noise GIF length
+  };
+
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % BGM.length);
-    handleGifChange(); // Change the GIF when moving to the next song
+    handleGifChange();
+    triggerNoise(); // Show noise on button press
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? BGM.length - 1 : prevIndex - 1
     );
-    handleGifChange(); // Change the GIF when moving to the previous song
+    handleGifChange();
+    triggerNoise(); // Show noise on button press
   };
 
   const handleShuffle = () => {
     const randomIndex = Math.floor(Math.random() * BGM.length);
     handleGifChange();
     setCurrentIndex(randomIndex);
+    triggerNoise(); // Show noise on button press
   };
 
   return (
@@ -54,6 +69,8 @@ const MusicPlayer: React.FC = () => {
           {isPlaying ? "Playing:" : "Paused:"} {BGM[currentIndex].title}
         </h2>
       </div>
+      {/* Noise visibility controlled here */}
+      {showNoise && <Noise />}
     </section>
   );
 };

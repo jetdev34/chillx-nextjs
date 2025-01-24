@@ -6,6 +6,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 interface GifContextType {
   handleGifChange: () => void;
+  setGifVisible: (visible: boolean) => void; // Function to control GIF visibility
 }
 
 const GifContext = createContext<GifContextType | undefined>(undefined);
@@ -24,6 +25,7 @@ interface GifProviderProps {
 
 const GifProvider: React.FC<GifProviderProps> = ({ children }) => {
   const [currentGif, setCurrentGif] = useState<string>(GIF[0].url);
+  const [gifVisible, setGifVisible] = useState<boolean>(true); // State for GIF visibility
 
   const getRandomGif = (exclude: string): string => {
     const availableGifs = GIF.filter((gif) => gif.url !== exclude);
@@ -45,10 +47,12 @@ const GifProvider: React.FC<GifProviderProps> = ({ children }) => {
   useHotkeys("g", handleGifChange);
 
   return (
-    <GifContext.Provider value={{ handleGifChange }}>
+    <GifContext.Provider value={{ handleGifChange, setGifVisible }}>
       <div
         className="min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url('${currentGif}')` }}
+        style={{
+          backgroundImage: gifVisible ? `url('${currentGif}')` : "none",
+        }}
       >
         {children}
       </div>

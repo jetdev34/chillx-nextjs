@@ -38,4 +38,22 @@ h5 {
   .neon-lights-green {
     filter: drop-shadow(0 0 2px hsl(120, 100%, 10%)) drop-shadow(0 0 1px green);
   }
+
+  .noise {
+    position: absolute;
+    inset: -200%;
+    background-image: url("/white-noise.png");
+    opacity: 25%;
+    pointer-events: none;
+    animation: shift 0.2s linear infinite both;
+  }
+}
+
+@keyframes shift {
+  0% {
+    transform: translateX(10%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-10%) translateY(-10%);
+  }
 }

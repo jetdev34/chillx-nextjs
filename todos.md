@@ -1,12 +1,14 @@
-- !Shuffle functionality
-- Select categories
-- Firebase implementation
 - Noise effect functionality
 - without Neon lights implementation
+- Select categories
+- Firebase implementation
 - Loading Screen when the web starts
 - Add a todolist (draggable)
 - Add a pomodoro (draggable)
 - Add a stopwatch (draggable)
+- Add a text when the music is not available
+- Add a buffering text
+- #Shuffle functionality
 - #Play one song only
 - #Next and Previous functionality
 - #About section

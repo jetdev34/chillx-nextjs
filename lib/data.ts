@@ -205,3 +205,22 @@ export const GIF = [
     url: "/gif/train.gif",
   },
 ];
+
+export const NOISE = [
+  {
+    id: 1,
+    url: "/noise/noise1.gif",
+  },
+  {
+    id: 2,
+    url: "/noise/noise2.gif",
+  },
+  {
+    id: 3,
+    url: "/noise/noise3.gif",
+  },
+  {
+    id: 4,
+    url: "/noise/noise4.gif",
+  },
+];
