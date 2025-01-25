@@ -6,14 +6,17 @@ import Image from "next/image";
 import { ICON_SIZE } from "@/lib/constants";
 import BackgroundMusic from "@/components/ui/BackgroundMusic";
 import { useBackgroundMusic } from "@/hooks/useBackgroundMusic"; // Import the custom hook
+import { BACKGROUND_NOISE } from "@/lib/data";
 
 function ConfigSection() {
   const [isConfig, setIsConfig] = useState<boolean>(false);
 
-  const rainSound = useBackgroundMusic("/sounds/rain.ogg");
-  const windSound = useBackgroundMusic("/sounds/wind.wav");
-  const fireSound = useBackgroundMusic("/sounds/fire.ogg");
-  const seawaveSound = useBackgroundMusic("/sounds/seawave.wav");
+  const rainSound = useBackgroundMusic(BACKGROUND_NOISE[0].url);
+  const windSound = useBackgroundMusic(BACKGROUND_NOISE[1].url);
+  const fireSound = useBackgroundMusic(BACKGROUND_NOISE[2].url);
+  const seawaveSound = useBackgroundMusic(BACKGROUND_NOISE[3].url);
+  const forestSound = useBackgroundMusic(BACKGROUND_NOISE[4].url);
+  const underTreeSound = useBackgroundMusic(BACKGROUND_NOISE[5].url);
 
   const toggleConfig = () => {
     setIsConfig(!isConfig);
@@ -66,6 +69,20 @@ function ConfigSection() {
               noiseVolume={seawaveSound.volume}
               toggleChange={seawaveSound.toggleSound}
               handleVolumeChange={seawaveSound.handleVolumeChange}
+            />
+            <BackgroundMusic
+              label="forest"
+              isCheck={forestSound.isPlaying}
+              noiseVolume={forestSound.volume}
+              toggleChange={forestSound.toggleSound}
+              handleVolumeChange={forestSound.handleVolumeChange}
+            />
+            <BackgroundMusic
+              label="rain under the tree"
+              isCheck={underTreeSound.isPlaying}
+              noiseVolume={underTreeSound.volume}
+              toggleChange={underTreeSound.toggleSound}
+              handleVolumeChange={underTreeSound.handleVolumeChange}
             />
           </div>
         )}

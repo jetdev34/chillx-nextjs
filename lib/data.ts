@@ -157,52 +157,40 @@ export const BGM = [
 
 export const GIF = [
   {
-    id: 1,
     url: "/gif/90s.gif",
   },
   {
-    id: 2,
-    url: "/gif/cd.gif",
-  },
-  {
-    id: 3,
-    url: "/gif/cozynight.gif",
-  },
-  {
-    id: 4,
-    url: "/gif/cup.gif",
-  },
-  {
-    id: 5,
     url: "/gif/night.gif",
   },
   {
-    id: 6,
-    url: "/gif/sea.gif",
-  },
-  {
-    id: 7,
-    url: "/gif/tower.gif",
-  },
-  {
-    id: 8,
     url: "/gif/retro.gif",
   },
   {
-    id: 9,
-    url: "/gif/room.gif",
-  },
-  {
-    id: 10,
-    url: "/gif/sea3.gif",
-  },
-  {
-    id: 11,
     url: "/gif/stoplight.gif",
   },
   {
-    id: 12,
-    url: "/gif/train.gif",
+    url: "/gif/home.gif",
+  },
+  {
+    url: "/gif/konbini.gif",
+  },
+  {
+    url: "/gif/ramen.gif",
+  },
+  {
+    url: "/gif/gif(1).gif",
+  },
+  {
+    url: "/gif/gif(2).gif",
+  },
+  {
+    url: "/gif/gif(3).gif",
+  },
+  {
+    url: "/gif/gif(5).gif",
+  },
+  {
+    url: "/gif/gif.gif",
   },
 ];
 
@@ -228,18 +216,26 @@ export const NOISE = [
 export const BACKGROUND_NOISE = [
   {
     name: "rain",
-    url: "/sounds/rain.ogg",
+    url: "/sounds/background/light-rain.mp3",
   },
   {
     name: "wind",
-    url: "/sounds/wind.wav",
-  },
-  {
-    name: "seawave",
-    url: "/sounds/seawave.wav",
+    url: "/sounds/background/wind.wav",
   },
   {
     name: "fire",
-    url: "/sounds/fire.ogg",
+    url: "/sounds/background/fire.mp3",
+  },
+  {
+    name: "seawave",
+    url: "/sounds/background/waveonbeach.mp3",
+  },
+  {
+    name: "forest",
+    url: "/sounds/background/forest.mp3",
+  },
+  {
+    name: "rain under the tree",
+    url: "/sounds/background/rain-under-tree.mp3",
   },
 ];
