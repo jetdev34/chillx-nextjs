@@ -1,4 +1,3 @@
-- Noise effect functionality
 - without Neon lights implementation
 - Select categories
 - Firebase implementation
@@ -8,6 +7,11 @@
 - Add a stopwatch (draggable)
 - Add a text when the music is not available
 - Add a buffering text
+- The Buttons overlaps the noise effect. Fix it
+- Add a TV like background in the gifs
+- Add a sound effects background like rain, fire camp
+  - Add a slide volume on each sound effects
+- #Noise effect functionality
 - #Shuffle functionality
 - #Play one song only
 - #Next and Previous functionality

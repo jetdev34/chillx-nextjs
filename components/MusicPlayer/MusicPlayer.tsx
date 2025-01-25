@@ -1,16 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import MusicButtons from "./MusicButtons";
+import MusicButtons from "./_components/MusicButtons";
 import { BGM } from "@/lib/data";
-import { useGifContext } from "./GifProvider";
-import Noise from "./Noise";
-
+import { useGifContext } from "../GifProvider";
+import Noise from "../ui/Noise";
+import useSound from "use-sound";
+import { DEFAULT_VOLUME, NOISE_SOUND } from "@/lib/constants";
 const MusicPlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isClient, setIsClient] = useState(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [showNoise, setShowNoise] = useState(false); // State for noise visibility
+  const [play] = useSound(NOISE_SOUND, {
+    volume: DEFAULT_VOLUME,
+  });
 
   const { handleGifChange, setGifVisible } = useGifContext();
 
@@ -26,6 +30,7 @@ const MusicPlayer: React.FC = () => {
   const triggerNoise = () => {
     setShowNoise(true); // Show the noise GIF
     setGifVisible(false); // Hide the lofi GIF
+    play();
     setTimeout(() => {
       setShowNoise(false); // Hide the noise GIF
       setGifVisible(true); // Show the lofi GIF again
@@ -69,6 +74,7 @@ const MusicPlayer: React.FC = () => {
           {isPlaying ? "Playing:" : "Paused:"} {BGM[currentIndex].title}
         </h2>
       </div>
+
       {/* Noise visibility controlled here */}
       {showNoise && <Noise />}
     </section>

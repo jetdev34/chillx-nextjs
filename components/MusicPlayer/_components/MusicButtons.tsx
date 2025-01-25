@@ -5,6 +5,7 @@ import NextButton from "./NextButton";
 import PreviousButton from "./PreviousButton";
 import VolumeBar from "./VolumeBar";
 import { useHotkeys } from "react-hotkeys-hook";
+import { DEFAULT_VOLUME, KEY_SHORTCUTS } from "@/lib/constants";
 type Props = {
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,13 +26,13 @@ const MusicButtons: React.FC<Props> = ({
   BGM,
 }) => {
   // Handles the volume level
-  const [volume, setVolume] = useState(0.5);
-  useHotkeys("space", () => setIsPlaying(!isPlaying));
-  useHotkeys("right", () => handleNext());
-  useHotkeys("left", () => handlePrevious());
-  useHotkeys("r", () => handleShuffle());
-  useHotkeys("down", () => setVolume(volume - 0.1));
-  useHotkeys("up", () => setVolume(volume + 0.1));
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  useHotkeys(KEY_SHORTCUTS.play, () => setIsPlaying(!isPlaying));
+  useHotkeys(KEY_SHORTCUTS.next, () => handleNext());
+  useHotkeys(KEY_SHORTCUTS.previous, () => handlePrevious());
+  useHotkeys(KEY_SHORTCUTS.shuffle, () => handleShuffle());
+  useHotkeys(KEY_SHORTCUTS.volumeDown, () => setVolume(volume - 0.1));
+  useHotkeys(KEY_SHORTCUTS.volumeUp, () => setVolume(volume + 0.1));
 
   return (
     <div className="flex flex-col gap-4">
