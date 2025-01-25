@@ -9,7 +9,7 @@
 - Add a buffering text
 - The Buttons overlaps the noise effect. Fix it
 - Add a TV like background in the gifs
-- Add a sound effects background like rain, fire camp
+- #Add a sound effects background like rain, fire camp
   - Add a slide volume on each sound effects
 - #Noise effect functionality
 - #Shuffle functionality

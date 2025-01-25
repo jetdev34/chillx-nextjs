@@ -224,3 +224,22 @@ export const NOISE = [
     url: "/noise/noise4.gif",
   },
 ];
+
+export const BACKGROUND_NOISE = [
+  {
+    name: "rain",
+    url: "/sounds/rain.ogg",
+  },
+  {
+    name: "wind",
+    url: "/sounds/wind.wav",
+  },
+  {
+    name: "seawave",
+    url: "/sounds/seawave.wav",
+  },
+  {
+    name: "fire",
+    url: "/sounds/fire.ogg",
+  },
+];
